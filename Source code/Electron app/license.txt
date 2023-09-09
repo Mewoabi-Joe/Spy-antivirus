@@ -1,0 +1,2 @@
+This CPU monitor application would run in background.
+Get Info on CPU usage as you use your pc and display to you.

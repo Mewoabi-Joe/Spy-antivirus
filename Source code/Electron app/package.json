@@ -1,0 +1,79 @@
+{
+	"name": "cool-app",
+	"productName": "CPU Monitor",
+	"version": "1.0.0",
+	"description": "My Electron application description",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "electron-forge start",
+		"package": "electron-forge package",
+		"make": "electron-forge make",
+		"publish": "electron-forge publish",
+		"lint": "echo \"No linting configured\"",
+		"build-installer": "electron-builder"
+	},
+	"build": {
+		"appId": "cool-app",
+		"win": {
+			"target": [
+				"nsis"
+			],
+			"icon": "src/icon.ico",
+			"requestedExecutionLevel": "requireAdministrator"
+		},
+		"nsis": {
+			"installerIcon": "src/icon.ico",
+			"uninstallerIcon": "src/icon.ico",
+			"uninstallDisplayName": "CPU Monitor",
+			"license": "license.txt",
+			"oneClick": false,
+			"allowToChangeInstallationDirectory": true
+		}
+	},
+	"keywords": [],
+	"author": "Mewoabi Joe",
+	"license": "MIT",
+	"config": {
+		"forge": {
+			"packagerConfig": {},
+			"makers": [
+				{
+					"name": "@electron-forge/maker-squirrel",
+					"config": {
+						"name": "cool_app"
+					}
+				},
+				{
+					"name": "@electron-forge/maker-zip",
+					"platforms": [
+						"darwin"
+					]
+				},
+				{
+					"name": "@electron-forge/maker-deb",
+					"config": {}
+				},
+				{
+					"name": "@electron-forge/maker-rpm",
+					"config": {}
+				}
+			]
+		}
+	},
+	"dependencies": {
+		"axios": "^0.26.1",
+		"fetch-installed-software": "^0.0.7",
+		"systeminformation": "^5.11.8",
+		"electron-squirrel-startup": "^1.0.0",
+		"os-utils": "0.0.14"
+	},
+	"devDependencies": {
+		"@electron-forge/cli": "^6.0.0-beta.51",
+		"@electron-forge/maker-deb": "^6.0.0-beta.51",
+		"@electron-forge/maker-rpm": "^6.0.0-beta.51",
+		"@electron-forge/maker-squirrel": "^6.0.0-beta.51",
+		"@electron-forge/maker-zip": "^6.0.0-beta.51",
+		"electron": "9.0.0",
+		"electron-builder": "^22.6.1"
+	}
+}
